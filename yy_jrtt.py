@@ -16,6 +16,9 @@ from retrying import retry
 etree = html.etree
 proxy = {}
 
+# 用的是熊猫代理 http://www.xiongmaodaili.com/ ，按量提取，每次提取1个ip，json格式，买3块钱的就差不多了
+proxy_url = 'http://route.xiongmaodaili.com/xiongmao-web/api/glip?secret=2cafe0fa711f5fc243bfe47999e61921&orderNo=GL20200223101445SA8mbNNF&count=1&isTxt=0&proxyType=1'
+
 
 @retry(stop_max_attempt_number=3, wait_random_min=1000, wait_random_max=5000)
 def change_proxy(retry_count):
@@ -68,8 +71,18 @@ def spider():
 
         # 详情页数据
         dtl_url = 'https://m.toutiao.com/i{}/info/?_signature=wFZ9DhAVnhkojF9zU0sGUsBWfR&i={}'.format(id, id)
-        time.sleep(1.6)
-        dtl_ret = requests.get(url=dtl_url, headers=header).json()
+        time.sleep(random.uniform(1.2, 3.5))
+        def get_dtl_ret(retry_count):
+            if retry_count < 0:
+                raise 0
+            try:
+                dtl_ret = requests.get(url=dtl_url, headers=header, proxies=proxy, timeout=6).json()
+                return dtl_ret
+            except:
+                change_proxy(3)
+                return get_dtl_ret(retry_count-1)
+
+        dtl_ret = get_dtl_ret(3)
         try:
             auth_info = dtl_ret['data']['media_user']['user_auth_info']['auth_info']
         except:
@@ -81,16 +94,24 @@ def spider():
         is_pgc_article = dtl_ret['data']['is_pgc_article']
 
         content_html = dtl_ret['data']['content']
-        print(content_html)
         content_root = etree.HTML(content_html)
         content1 = content_root.xpath('string(/)')
-        content2 = content_root.xpath('//text()')[0]
+        content2 = '\n'.join(content_root.xpath('//text()'))
+
+        strong = content_root.xpath('//p/strong')
+
+        source = ''
+        for s in strong:
+            if s.xpath("./text()")[0] == '辟谣来源：':
+                source = s.xpath('./../text()')[0] if s.xpath('./../text()') else ''
+                print(source)
 
         imgs = content_root.xpath("//img/@src")
         comment_count = dtl_ret['data']['comment_count']
 
-        need = [id, status, is_hot, title, created_at, updated_at, read_count, auth_info, d_url, impression_count,
+        need = [id, status, is_hot, title, source, created_at, updated_at, read_count, auth_info, d_url, impression_count,
                 is_original, is_pgc_article, content1, content2, imgs, comment_count]
+        print(need)
         need_list.append(need)
     return need_list
 
@@ -109,12 +130,15 @@ def save_data(filename, data):
     with open(path, "a", newline="", encoding="utf_8_sig") as f:
         c = csv.writer(f)
         if not is_exist:
-            c.writerow(['id', 'status', 'is_hot', 'title', 'created_at', 'updated_at', 'read_count', 'auth_info', 'd_url', 'impression_count',
-                'is_original', 'is_pgc_article', 'content1', 'content2', 'imgs', 'comment_count'])
+            c.writerow(
+                ['id', 'status', 'is_hot', 'title', 'source', 'created_at', 'updated_at', 'read_count', 'auth_info', 'd_url',
+                 'impression_count',
+                 'is_original', 'is_pgc_article', 'content1', 'content2', 'imgs', 'comment_count'])
         for line in data:
             c.writerow(line)
 
 
 if __name__ == '__main__':
+    # change_proxy(1)
     data = spider()
     save_data(filename='今日头条谣言', data=data)

@@ -101,12 +101,17 @@ def spider(keyword, page, date, pro):
                 root_detail_res.xpath("//span[@class='rich_media_meta rich_media_meta_text']/text()") else ''
             article_author = article_author.replace(' ', '').replace('\n', '')  # 作者
             article_content = root_detail_res.xpath("string(//div[@class='rich_media_content '])").replace(' ', '')  # 文章内容
+            if article_content == '' or article_content is None:
+                is_have = 0
+            else:
+                is_have = 1
+
             article_img_url = root_detail_res.xpath("//div[@class='rich_media_content ']//img/@data-src")
             article_img_url = '\n'.join(article_img_url)    # 图片链接
             article_video_url = root_detail_res.xpath("//iframe/@data-src")
             article_video_url = '\n'.join(article_video_url)    # 视频链接
             need = [article_date, article_title, article_gzh, article_content, article_author, article_read,
-                    article_url, article_img_url, article_video_url]
+                    article_url, article_img_url, article_video_url, is_have]
             print(need)
             need_list.append(need)
         return need_list
@@ -131,21 +136,18 @@ def save_data(filename, data):
     with open(path, "a", newline="", encoding="utf_8_sig") as f:
         c = csv.writer(f)
         if not is_exist:
-            c.writerow(['日期', '标题', '公众号', '全文', '作者', '阅读量', '链接', '图片链接', '视频链接'])
+            c.writerow(['日期', '标题', '公众号', '全文', '作者', '阅读量', '链接', '图片链接', '视频链接', '是否有内容'])
         for line in data:
             c.writerow(line)
 
 
 if __name__ == '__main__':
     change_proxy(1)
-    keywords = ['疫情', '肺炎', '病毒', '武汉', '口罩', '患者'
-                '钟南山', '医生', '专家', '物资', '谣言', '火神山', '病人',
-                '辟谣', '红十字会', '药物', '韩红', '李兰娟', '李文亮', '高福']
+    keywords = ['红十字会']
 
     page_list = [1, 2, 3, 4, 5]
 
-    date_list = ['2020-02-14', '2020-02-15', '2020-02-16', '2020-02-17', '2020-02-18', '2020-02-19', '2020-02-20',
-                 '2020-02-21', '2020-02-22']
+    date_list = ['2020-02-23', '2020-02-24', '2020-02-25', '2020-02-26', '2020-02-27', '2020-02-28', '2020-02-29', '2020-03-01']
 
     pro_list = ['北京', '甘肃', '山西', '内蒙古', '陕西', '吉林', '福建', '贵州', '广东', '青海', '西藏', '四川', '宁夏', '海南',
                 '台湾', '香港', '广西', '湖北', '天津', '上海', '重庆', '河北', '河南', '云南', '辽宁', '黑龙江', '湖南', '安徽',

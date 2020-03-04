@@ -17,13 +17,13 @@ ua = UserAgent(verify_ssl=False)
 etree = html.etree
 
 # 代理ip地址
-proxy_url = 'http://route.xiongmaodaili.com/xiongmao-web/api/glip?secret=3f3a3212bb8129e0d70d325c41bed8c7&orderNo=GL20200223101445SA8mbNNF&count=1&isTxt=0&proxyType=1'
+proxy_url = 'http://route.xiongmaodaili.com/xiongmao-web/api/glip?secret=fc91ea822efb13836dc07508b3a47898&orderNo=GL20200131152126nmVxqyej&count=1&isTxt=0&proxyType=1'
 
 # web
 index_url = 'http://www.gsdata.cn/query/ajax_arc'
 
 # cookie过期了就修改下
-index_cookie = 'acw_tc=76b20fe815813177246883744e4e628533b6a000162eaaa41b06489d153341; 53gid2=10307206372013; 53revisit=1581317726268; _csrf-frontend=3986149ab949de3e3acb72703477f124c386a454d2cb22908c2326274b22da40a%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_csrf-frontend%22%3Bi%3A1%3Bs%3A32%3A%22zoNS2DZSkH9-OJUfJDUYq-SR3c5ikGUV%22%3B%7D; Hm_lvt_293b2731d4897253b117bb45d9bb7023=1581437472,1581488928,1581648153,1582423006; visitor_type=old; 53gid0=10307206372013; 53gid1=10307206372013; 53kf_72213613_from_host=www.gsdata.cn; 53kf_72213613_keyword=https%3A%2F%2Fwww.baidu.com%2Flink%3Furl%3DR1_eK3-GVFH2ZezcRvqPlGE1ad0gcQLmamEu0Ptx5KS%26wd%3D%26eqid%3Db1007c2000425f33000000045e51dbd7; 53kf_72213613_land_page=http%253A%252F%252Fwww.gsdata.cn%252F; kf_72213613_land_page_ok=1; _gsdataCL=WzAsIjEzNzU3MDI3NTk5IiwiMjAyMDAyMjMwOTU2NTIiLCIxY2M2MWJjYmE3YjQxMjIyNDQ2ZThjOGI1MGVjZmU0OCIsMjY1NDY3XQ%3D%3D; _gsdataOL=265467%3B13757027599%3B%7B%220%22%3A%22%22%2C%221%22%3A%22%22%2C%222%22%3A%22%22%2C%223%22%3A%22%22%2C%224%22%3A%22%22%2C%225%22%3A%22%22%2C%2299%22%3A%2220200223%22%7D%3Beef7f545cb61dffb279dfe028052d5be; PHPSESSID=i2966fjb7lidlnb5u22mqj2ae5; _identity-frontend=34c492f17376825dadf2d91d78db33fac19024acefe18045dcb32b63866fe15ca%3A2%3A%7Bi%3A0%3Bs%3A18%3A%22_identity-frontend%22%3Bi%3A1%3Bs%3A28%3A%22%5B%22576491%22%2C%22test+key%22%2C604800%5D%22%3B%7D; Hm_lpvt_293b2731d4897253b117bb45d9bb7023=1582423015; 53uvid=1; onliner_zdfq72213613=0'
+index_cookie = 'visitor_type=old; acw_tc=76b20ff415831107523344124e6aeec0a1fbf23d3574752aca4ec3e76c9553; _csrf-frontend=78052acb4025d004896fefa7987ef43063d0e74a6fdb00be8aa757f9dfde59d2a%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_csrf-frontend%22%3Bi%3A1%3Bs%3A32%3A%22KNUleYp92D7v39FMuHJvJKX-TBdeaq__%22%3B%7D; 53gid2=11579411834005; 53gid0=11579411834005; 53gid1=11579411834005; 53revisit=1583110752487; 53kf_72213613_from_host=www.gsdata.cn; 53kf_72213613_land_page=http%253A%252F%252Fwww.gsdata.cn%252F; kf_72213613_land_page_ok=1; 53uvid=1; onliner_zdfq72213613=0; _gsdataCL=WzAsIjEzNzU3MDI3NTk5IiwiMjAyMDAzMDIwODU5NDYiLCJjZGQyOTAxODNhMGM1OGQ1MmIwNmM5MzdkNWNmMDQwZCIsMjY1NDY3XQ%3D%3D; _gsdataOL=265467%3B13757027599%3B%7B%220%22%3A%22%22%2C%221%22%3A%22%22%2C%222%22%3A%22%22%2C%223%22%3A%22%22%2C%224%22%3A%22%22%2C%225%22%3A%22%22%2C%2299%22%3A%2220200302%22%7D%3B0e7c174a76ae88b5c1d5b447922997b2; _identity-frontend=34c492f17376825dadf2d91d78db33fac19024acefe18045dcb32b63866fe15ca%3A2%3A%7Bi%3A0%3Bs%3A18%3A%22_identity-frontend%22%3Bi%3A1%3Bs%3A28%3A%22%5B%22576491%22%2C%22test+key%22%2C604800%5D%22%3B%7D; visitor_type=old; Hm_lvt_293b2731d4897253b117bb45d9bb7023=1583110752,1583118831; 53kf_72213613_keyword=https%3A%2F%2Fwww.baidu.com%2Flink%3Furl%3DMJrPxDSnroZ2v4cdJOXzXmgTEjQ1XXSEHGkpJomxmx7%26wd%3D%26eqid%3Da3b375010006b382000000045e5c79ed; 2019ncov=1; Hm_lpvt_293b2731d4897253b117bb45d9bb7023=1583118876; PHPSESSID=38j43hjb7ke09g9r6p2pm52rj7'
 
 web_header = {
     'Host': 'www.gsdata.cn',
@@ -38,7 +38,7 @@ web_header = {
 """
 
 """
-detail_cookie = 'pgv_pvi=9100752896; pgv_pvid=8347507092; RK=pNrt2I0tTT; ptcz=5953521d372d7088d78ab819b49193fd7a0531a7d198ef6ce684e236c376f76e; sd_userid=16301563429994862; sd_cookie_crttime=1563429994862; pac_uid=1_244776919; eas_sid=t1p5w6V4G7I3h2e8D411j7c1M6; XWINDEXGREY=0; tvfe_boss_uuid=bb828ca3a9cf9030; rewardsn=; wxtokenkey=777'
+detail_cookie = 'pgv_pvi=5671963648; pgv_pvid=6382757760; RK=PFrtiq0NER; ptcz=5208263401e5f54b61c96ac84e969534d84ed2f16cb174cbd23372bbdb8e22da; pac_uid=0_fc2abde7eca45; XWINDEXGREY=0; eas_sid=a1n5N7s1J930V6C6T3Q7z9y0v8; rewardsn=; wxtokenkey=777'
 
 detail_header = {
     'Host': 'mp.weixin.qq.com',
@@ -53,6 +53,10 @@ li = ['2019-12-31', '2020-01-01', '2020-01-02', '2020-01-03', '2020-01-04', '202
              '2020-01-14', '2020-01-15', '2020-01-16', '2020-01-17', '2020-01-18', '2020-01-19', '2020-01-20',
              '2020-01-21', '2020-01-22', '2020-01-23', '2020-01-24', '2020-01-25', '2020-01-26', '2020-01-27',
              '2020-01-28']
+
+a = ['疫情', '肺炎', '病毒', '武汉', '口罩', '患者',
+                                          '钟南山', '医生', '专家', '物资', '谣言', '火神山', '病人',
+            '辟谣', '红十字会', '药物', '韩红', '李兰娟', '李文亮', '高福']
 # res = requests.get(url=index_url, headers=web_header).json()
 # print(res)
 
