@@ -61,6 +61,7 @@ a = ['疫情', '肺炎', '病毒', '武汉', '口罩', '患者',
 # print(res)
 
 
+
 # detail_res = requests.get(url='https://mp.weixin.qq.com/s?__biz=MjM5MjQxNDY2Nw==&mid=2649471846&idx=1&sn=e1d2dac23d3ce8b591f26204cc7f24be&scene=0', headers=detail_header).content.decode()
 # root_detail_res = etree.HTML(detail_res)
 # article_author = root_detail_res.xpath("//span[@class='rich_media_meta rich_media_meta_text']/text()")[0] if \
