@@ -17,13 +17,13 @@ ua = UserAgent(verify_ssl=False)
 etree = html.etree
 
 # 代理ip地址
-proxy_url = 'http://route.xiongmaodaili.com/xiongmao-web/api/glip?secret=fc91ea822efb13836dc07508b3a47898&orderNo=GL20200131152126nmVxqyej&count=1&isTxt=0&proxyType=1'
+proxy_url = 'http://route.xiongmaodaili.com/xiongmao-web/api/glip?secret=8d7cc3c74eeb76ad422c67df45944d31&orderNo=GL20200131152126nmVxqyej&count=1&isTxt=0&proxyType=1'
 
 # web
 index_url = 'http://www.gsdata.cn/query/ajax_arc'
 
 # cookie过期了就修改下
-index_cookie = 'visitor_type=old; acw_tc=76b20ff415831107523344124e6aeec0a1fbf23d3574752aca4ec3e76c9553; _csrf-frontend=78052acb4025d004896fefa7987ef43063d0e74a6fdb00be8aa757f9dfde59d2a%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_csrf-frontend%22%3Bi%3A1%3Bs%3A32%3A%22KNUleYp92D7v39FMuHJvJKX-TBdeaq__%22%3B%7D; 53gid2=11579411834005; 53gid0=11579411834005; 53gid1=11579411834005; 53revisit=1583110752487; 53kf_72213613_from_host=www.gsdata.cn; 53kf_72213613_land_page=http%253A%252F%252Fwww.gsdata.cn%252F; kf_72213613_land_page_ok=1; 53uvid=1; onliner_zdfq72213613=0; _gsdataCL=WzAsIjEzNzU3MDI3NTk5IiwiMjAyMDAzMDIwODU5NDYiLCJjZGQyOTAxODNhMGM1OGQ1MmIwNmM5MzdkNWNmMDQwZCIsMjY1NDY3XQ%3D%3D; _gsdataOL=265467%3B13757027599%3B%7B%220%22%3A%22%22%2C%221%22%3A%22%22%2C%222%22%3A%22%22%2C%223%22%3A%22%22%2C%224%22%3A%22%22%2C%225%22%3A%22%22%2C%2299%22%3A%2220200302%22%7D%3B0e7c174a76ae88b5c1d5b447922997b2; _identity-frontend=34c492f17376825dadf2d91d78db33fac19024acefe18045dcb32b63866fe15ca%3A2%3A%7Bi%3A0%3Bs%3A18%3A%22_identity-frontend%22%3Bi%3A1%3Bs%3A28%3A%22%5B%22576491%22%2C%22test+key%22%2C604800%5D%22%3B%7D; visitor_type=old; Hm_lvt_293b2731d4897253b117bb45d9bb7023=1583110752,1583118831; 53kf_72213613_keyword=https%3A%2F%2Fwww.baidu.com%2Flink%3Furl%3DMJrPxDSnroZ2v4cdJOXzXmgTEjQ1XXSEHGkpJomxmx7%26wd%3D%26eqid%3Da3b375010006b382000000045e5c79ed; 2019ncov=1; Hm_lpvt_293b2731d4897253b117bb45d9bb7023=1583118876; PHPSESSID=38j43hjb7ke09g9r6p2pm52rj7'
+index_cookie = 'visitor_type=old; 53gid2=11300403675005; 53revisit=1582991410761; acw_tc=76b20fea15857574622268621e22f738891536d30f5cb336771fbc852731ce; _csrf-frontend=1242d3bdb062308aaee162b2791335534e5e81145c71b6e0b5bade5d619d4d61a%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_csrf-frontend%22%3Bi%3A1%3Bs%3A32%3A%22va2kWlfyiSjQDAF_YPWCn5LjDiNFNr4e%22%3B%7D; Hm_lvt_293b2731d4897253b117bb45d9bb7023=1584453005,1585757464,1586147014; 53gid0=11300403675005; visitor_type=old; 53gid1=11300403675005; 53kf_72213613_from_host=www.gsdata.cn; 53kf_72213613_keyword=https%3A%2F%2Fwww.baidu.com%2Flink%3Furl%3DatnzBAWv93kJKkSiFV8IOgYdLSPqAVHixZkghgF_SpG%26wd%3D%26eqid%3Dd1c063370009be1c000000045e8aaec2; 53kf_72213613_land_page=http%253A%252F%252Fwww.gsdata.cn%252F; kf_72213613_land_page_ok=1; 53uvid=1; onliner_zdfq72213613=0; _gsdataCL=WzAsIjE4MDk3NTU2NTU5IiwiMjAyMDA0MDYxMzE3MjEiLCJlNTA4MGIxYTMxNmIyYzczMzFiNzljMWVkMWNlN2E3NCIsMTIwNTIyXQ%3D%3D; _gsdataOL=120522%3B18097556559%3B%7B%220%22%3A%22%22%2C%221%22%3A%22%22%2C%222%22%3A%22%22%2C%223%22%3A%22%22%2C%224%22%3A%22%22%2C%225%22%3A%22%22%2C%2299%22%3A%2220200406%22%7D%3B1379eb64f30071f28371b5e3b3b9b637; PHPSESSID=bmovcpejocqap1vl9tbb6urhp4; _identity-frontend=d9c9dc3f2b7347a382f0c84ccf705e244b9c5ea8ff5ba8269616f41c07a53125a%3A2%3A%7Bi%3A0%3Bs%3A18%3A%22_identity-frontend%22%3Bi%3A1%3Bs%3A28%3A%22%5B%22228674%22%2C%22test+key%22%2C604800%5D%22%3B%7D; Hm_lpvt_293b2731d4897253b117bb45d9bb7023=1586150247'
 
 web_header = {
     'Host': 'www.gsdata.cn',
@@ -38,7 +38,7 @@ web_header = {
 """
 
 """
-detail_cookie = 'pgv_pvi=5671963648; pgv_pvid=6382757760; RK=PFrtiq0NER; ptcz=5208263401e5f54b61c96ac84e969534d84ed2f16cb174cbd23372bbdb8e22da; pac_uid=0_fc2abde7eca45; XWINDEXGREY=0; eas_sid=a1n5N7s1J930V6C6T3Q7z9y0v8; rewardsn=; wxtokenkey=777'
+detail_cookie = 'RK=1Mrt2o0tRR; ptcz=92f7c034bacefda6b02f83225cde534286dfd1ac8d9330dfc122f582607673c5; pgv_pvi=2349735936; tvfe_boss_uuid=cabacb0c10b4a901; pgv_pvid=7079222748; LW_uid=f1k5j6T075A2u5H5b5c7J474s2; eas_sid=k1Y5C6O0S5b2D505U5D7S4l7z7; o_cookie=2672085019; pac_uid=1_2672085019; XWINDEXGREY=0; ied_qq=o2672085019; uin_cookie=o2672085019; LW_sid=H1S5B7A9c1m8Z7l4d7m6O172g9; uin=o0244776919; skey=@vVXtji1gL; pgv_si=s6304292864; _qpsvr_localtk=0.25625078201167106; rewardsn=; wxtokenkey=777'
 
 detail_header = {
     'Host': 'mp.weixin.qq.com',
