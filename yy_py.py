@@ -60,6 +60,7 @@ def spider(page):
     dc = p.findall(ret)[0].replace('null', '0')
     print(dc)
     dc = ast.literal_eval(dc)
+    print(dc)
     data_list = dc['data']['list']
     print(len(data_list))
     need_list = []
@@ -117,7 +118,7 @@ def save_data(filename, data):
 
 if __name__ == '__main__':
     # change_proxy(1)
-    for page in range(1, 50):
+    for page in range(1, 600):
         data = spider(page)
         save_data(filename='wa谣言', data=data)
         print(page)

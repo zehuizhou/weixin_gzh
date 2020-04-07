@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+#!/usr/bin/env Python
+# coding=utf-8
 import csv
 import os
 import sys
@@ -33,8 +35,8 @@ def spider(page):
         status = data['status']
         pic = data['pic']
         desc = data['desc']
-
-        dl_ret = requests.get(url=url, headers=web_header).content.decode()
+        print(url)
+        dl_ret = requests.get(url=url, headers=web_header).text
         root = etree.HTML(dl_ret)
         author = root.xpath("//span[@class='author']/a/text()")[0] if root.xpath("//span[@class='author']/a/text()") else ''
         print(author)
@@ -71,7 +73,7 @@ def save_data(filename, data):
 
 
 if __name__ == '__main__':
-    for i in range(1, 200):
+    for i in range(1, 300):
         data = spider(i)
         save_data(filename='新浪谣言', data=data)
         print('################################################')

@@ -2,7 +2,7 @@ import re
 import pandas as pd
 import requests
 
-data = pd.date_range(start='20200106', end='20200405')
+data = pd.date_range(start='20200107', end='20200405')
 date_list = data.array
 date_lists = []
 for i in date_list:
